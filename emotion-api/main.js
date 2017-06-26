@@ -1,11 +1,72 @@
 $(document).ready(function() {
-	
-	// var endPoint = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0';
-	// Request parameters
-	var params = {
-  };
 
+  var canvas = document.getElementById('canvas');
+  var context = canvas.getContext('2d');
+  var video = document.getElementById('video');
+  var captureButton = document.getElementById('snap')
+
+  function initWebCam() {
+    console.log('init web cam');
+    // Grab elements, create settings, etc.
+
+    // Get access to the camera!
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Not adding `{ audio: true }` since we only want video now
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function(stream) {
+            video.src = window.URL.createObjectURL(stream);
+            video.play();
+          })
+          .catch(function(e) {
+            console.error('an error occured while initializing webcam', e);
+            alert('Oops! Can not initialize webcam');
+          });
+    }
+  }
+
+  function captureImage() {
+    console.log('capture image called');
+    // Elements for taking the snapshot
+    context.drawImage(video, 0, 0, 640, 480);
+  }
+
+  function bindEvents() {
+    captureButton.addEventListener('click', captureImage);
+  }
+
+  function uploadImage() {
+    // TODO - implement this
+  }
+
+  function callEmotionApiWithImageUrl(url) {
+    // TODO - implement this
+  }
+
+  function init() {
+    console.log('global init');
+    initWebCam();
+    bindEvents();
+  }
+
+  // kick everything off
+  init();
+
+});
+
+
+
+
+
+/*
+$(document).ready(function() {
+	
+  // var endPoint = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0';
+  // Request parameters
+  var params = {
+  };
   var endPoint = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?' + $.param(params);
+	
+
   
   $.ajax({ 
     url: endPoint + $.param(params),
@@ -27,3 +88,4 @@ $(document).ready(function() {
   	console.log('Faiure: ', e);
   });
 });
+*/

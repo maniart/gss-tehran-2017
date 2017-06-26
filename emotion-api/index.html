@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-	<title>Emotion API demo</title>
-</head>
-<body>
+	<head>
+		<script 
+			type="text/javascript" 
+			src="bower_components/jquery/dist/jquery.min.js">
+		</script>
+		<title>
+			Image based data provider client (Emotion API)
+		</title>
+	</head>
 
-	<h1>
-		Emotion API Demo
-	</h1>	
+	<body>
+		
+		<video 
+			id="video" 
+			width="640" 
+			height="480" 
+			autoplay>
+		</video>
+		
+		<button 
+			id="snap">
+			Snap Photo
+		</button>
+		
+		<canvas 
+			id="canvas" 
+			width="640" 
+			height="480">
+		</canvas>
 
+		<script 
+			type="text/javascript" 
+			src="./main.js">
+		</script>
 
-	<script type="text/javascript" src="./main.js"></script>
-</body>
+	</body>
+
 </html>
