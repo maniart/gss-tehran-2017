@@ -5,6 +5,19 @@ $(document).ready(function() {
   var video = document.getElementById('video');
   var captureButton = document.getElementById('snap')
 
+  function initFireBase() {
+  // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDuQgKkcN8XhTp_Ahj38RilBfxziDl8ef8",
+      authDomain: "tehran-gss-gadgets-1.firebaseapp.com",
+      databaseURL: "https://tehran-gss-gadgets-1.firebaseio.com",
+      projectId: "tehran-gss-gadgets-1",
+      storageBucket: "tehran-gss-gadgets-1.appspot.com",
+      messagingSenderId: "312021473964"
+    };
+    firebase.initializeApp(config);
+  }
+
   function initWebCam() {
     console.log('init web cam');
     // Grab elements, create settings, etc.
@@ -46,26 +59,20 @@ $(document).ready(function() {
     console.log('global init');
     initWebCam();
     bindEvents();
+    initFireBase();
   }
 
   // kick everything off
   init();
 
-});
-
-
-
-
-
-/*
-$(document).ready(function() {
-	
+  /*
+  
   // var endPoint = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0';
   // Request parameters
   var params = {
   };
   var endPoint = 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?' + $.param(params);
-	
+  
 
   
   $.ajax({ 
@@ -85,7 +92,18 @@ $(document).ready(function() {
     console.log('Success: ', data);
   })
   .fail(function(e) {
-  	console.log('Faiure: ', e);
+    console.log('Faiure: ', e);
   });
+  */
+
 });
-*/
+
+
+
+
+
+
+// $(document).ready(function() {
+	
+  
+// });
